@@ -14,9 +14,9 @@
       "use strict";
       function displayDate() {
         const dateInput = document.getElementById("dateInput");
-        let dateInputField = dateInput.value;
+        const dateInputField = new Date(dateInput.value + 'T00:00'); //this date will be 1 day off unless we put "+ 'T00:00'" in
         const resultPara = document.getElementById("resultPara");
-        resultPara.innerText = dateInputField.toString();
+        resultPara.innerText = dateInputField.toString(); //this convert the date to string
       }
     </script>
   </body>
