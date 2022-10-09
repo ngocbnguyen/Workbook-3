@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Difference</title>
+</head>
+<body>
+    <label for="dateInput">Travel Date:</label>
+    <br>
+    <input type="date" id="dateInput">
+    <button onclick="submitBtnClicked();">Submit</button>
+    <p id="message"></p>
+
+    <script>
+        function submitBtnClicked() {
+            const dateInputField = document.getElementById("dateInput");
+
+            let endDate = new Date(dateInputField.value + 'T00:00');
+            let startDate = new Date();
+
+            let msec_per_day = 1000 * 60 * 60 * 24;
+            let elapsedMilliseconds = startDate.getTime() - endDate.getTime();
+            let dayDiff = elapsedMilliseconds / msec_per_day;
+            let numDays = Masth.abs(Math.round(dayDiff));
+
+            const message = document.getElementById("message");
+            message.innerText = `Your trip is in ${numDays} days`;
+        }
+    </script>
+</body>
+</html>
